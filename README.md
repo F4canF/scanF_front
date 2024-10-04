@@ -1,3 +1,8 @@
+### 실행
+  ```
+  npx expo start
+  ```
+
 ## 규칙
 - 만들고 바로 main(default)브랜치에 푸시 절대 안됨!!!!
 - Pull Request 하기, 요구사항 구체적으로 적어놓기!
