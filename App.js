@@ -51,7 +51,6 @@ const App = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F8F5AE',
   },
   header: {
     flex: 1,
