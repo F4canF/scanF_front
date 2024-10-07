@@ -27,15 +27,17 @@ const App = () => {
 
       {/* 버튼 부분 */}
       <View style={styles.body}>
-        <TouchableOpacity style={styles.button} onPress={() => { /* myPage로 이동 */ }}>
+        <TouchableOpacity style={styles.buttonSide} onPress={() => { /* myPage로 이동 */ }}>
           <Text style={styles.buttonText}>My-page</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => { /* DrawingCanvas로 이동 */ }}>
-          <Text style={styles.buttonText}>그림배우기</Text>
-        </TouchableOpacity>
-        <TouchableOpacity style={styles.button} onPress={() => { /* TextInput으로 이동 */ }}>
-          <Text style={styles.buttonText}>글자학습 및 교정</Text>
-        </TouchableOpacity>
+        <View >
+          <TouchableOpacity style={styles.button} onPress={() => { /* DrawingCanvas로 이동 */ }}>
+            <Text style={styles.buttonText}>그림배우기</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.button} onPress={() => { /* TextInput으로 이동 */ }}>
+            <Text style={styles.buttonText}>글자학습 및 교정</Text>
+          </TouchableOpacity>
+        </View>
       </View>
 
       {/* 이미지 부분 */}
@@ -61,9 +63,8 @@ const styles = StyleSheet.create({
     WebkitTextStrokeWidth: '2px', // 사용하려면 Webkit 접두사를 추가
     WebkitTextStrokeColor: '#000000',
     fontFamily: 'Agbalumo', 
-    fontSize: '7rem', 
-    fontWeight: '400', 
-    lineHeight: 'normal', 
+    fontSize: '4rem', 
+    fontWeight: '450', 
   },
   subtitle: {
     color: 'rgba(85, 85, 85, 0.87)', 
@@ -84,7 +85,13 @@ const styles = StyleSheet.create({
     height: 100,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 10,
+  },
+  buttonSide: {
+    backgroundColor: '#D3D3D3',
+    width: '25.62vw',
+    height: '63.48vh',
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   buttonText: {
     fontSize: 14,
