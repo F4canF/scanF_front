@@ -1,5 +1,6 @@
 ### 실행
   ```
+  npm install
   npx expo start
   ```
 
