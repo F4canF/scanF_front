@@ -31,7 +31,7 @@ const styles = StyleSheet.create({
     text: {
         color: 'rgba(85, 85, 85, 0.87)', 
         fontFamily: 'Jua', 
-        fontSize: '2.4rem', 
+        fontSize: 64, 
         fontStyle: 'normal', 
         fontWeight: '200', 
     },

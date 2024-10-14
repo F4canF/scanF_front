@@ -3,37 +3,37 @@ import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
 const Main = () => {
     return (
-      <View style={styles.container}>
-        {/* 제목 부분 */}
-        <View style={styles.header}>
-          <Text style={styles.title}>scanF</Text>
-          <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
-        </View>
-  
-        {/* 버튼 부분 */}
-        <View style={styles.body}>
-          <TouchableOpacity style={styles.buttonSide} onPress={() => { /* myPage로 이동 */ }}>
-            <Text style={styles.buttonText}>My-page</Text>
-          </TouchableOpacity>
-          <View >
-            <TouchableOpacity style={styles.button} onPress={() => { /* DrawingCanvas로 이동 */ }}>
-              <Text style={styles.buttonText}>그림배우기</Text>
+        <View style={styles.container}>
+            {/* 제목 부분 */}
+            <View style={styles.header}>
+                <Text style={styles.title}>scanF</Text>
+                <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
+            </View>
+
+            {/* 버튼 부분 */}
+            <View style={styles.body}>
+            <TouchableOpacity style={styles.buttonSide} onPress={() => { /* myPage로 이동 */ }}>
+                <Text style={styles.buttonText}>My-page</Text>
             </TouchableOpacity>
-            <TouchableOpacity style={styles.button} onPress={() => { /* TextInput으로 이동 */ }}>
-              <Text style={styles.buttonText}>글자학습 및 교정</Text>
-            </TouchableOpacity>
-          </View>
+            <View >
+                <TouchableOpacity style={styles.button} onPress={() => { /* DrawingCanvas로 이동 */ }}>
+                <Text style={styles.buttonText}>그림배우기</Text>
+                </TouchableOpacity>
+                <TouchableOpacity style={styles.button} onPress={() => { /* TextInput으로 이동 */ }}>
+                <Text style={styles.buttonText}>글자학습 및 교정</Text>
+                </TouchableOpacity>
+            </View>
+            </View>
+
+            {/* 이미지 부분 */}
+            <View style={styles.footer}>
+            <Text style={styles.footerText}>Footer Image or Illustration Here</Text>
+            </View>
         </View>
-  
-        {/* 이미지 부분 */}
-        <View style={styles.footer}>
-          <Text style={styles.footerText}>Footer Image or Illustration Here</Text>
-        </View>
-      </View>
-    );
-  };
-  
-  const styles = StyleSheet.create({
+        );
+};
+
+    const styles = StyleSheet.create({
     container: {
         flex: 1,
     },
@@ -43,12 +43,12 @@ const Main = () => {
         justifyContent: 'center',
     },
     title: {
-        color: '#F8F152', 
-        WebkitTextStrokeWidth: '2px', // 사용하려면 Webkit 접두사를 추가
-        WebkitTextStrokeColor: '#000000',
-        fontFamily: 'Agbalumo', 
-        fontSize: '4rem', 
-        fontWeight: '450', 
+        color: '#F8F152',
+         WebkitTextStrokeWidth: '2px',  // React Native에서는 지원되지 않음
+        WebkitTextStrokeColor: '#000000',  // React Native에서는 지원되지 않음
+        fontFamily: 'Agbalumo',
+        fontSize: 64,  // '4rem' 대신 픽셀 값으로 사용 (React Native는 rem 단위를 지원하지 않음)
+        fontWeight: 'bold', // 450은 잘못된 값일 수 있으므로, 'bold'나 400, 500과 같은 값을 사용
     },
     subtitle: {
         color: 'rgba(85, 85, 85, 0.87)', 
@@ -72,8 +72,8 @@ const Main = () => {
     },
     buttonSide: {
         backgroundColor: '#D3D3D3',
-        width: '25.62vw',
-        height: '63.48vh',
+        width: '25%',  // 퍼센트 값을 사용할 수 있지만, vw는 지원되지 않음
+        height: '63%',  // vh 대신 퍼센트 사용
         justifyContent: 'center',
         alignItems: 'center',
     },

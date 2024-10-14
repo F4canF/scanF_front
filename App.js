@@ -16,12 +16,9 @@ const App = () => {
     return <Loading />;
   }
 
-  // 로딩이 끝난 후 실제 메인 페이지 표시
   return (
     <Main/>
   );
 };
-
-
 
 export default App;
