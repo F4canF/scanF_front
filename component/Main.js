@@ -5,6 +5,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MyPage from '../component/screens/MyPage'; // 새로운 페이지 임포트
 import DrawingCanvas from '../component/screens/DrawingCanvas'; // 새로운 페이지 임포트
 import TextInput from '../component/screens/TextInput'; // 새로운 페이지 임포트
+import Title from '../assets/title.svg';
 
 
 const Stack = createStackNavigator();
@@ -13,6 +14,7 @@ const MainPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
+                <Title/>
                 <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
             </View>
 
