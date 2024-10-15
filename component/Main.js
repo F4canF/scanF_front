@@ -1,36 +1,57 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
-import Title from '../assets/title.svg';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { createStackNavigator } from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import MyPage from '../component/screens/MyPage'; // 새로운 페이지 임포트
+import DrawingCanvas from '../component/screens/DrawingCanvas'; // 새로운 페이지 임포트
+import TextInput from '../component/screens/TextInput'; // 새로운 페이지 임포트
 
-const Main = () => {
+
+const Stack = createStackNavigator();
+
+const MainPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
-            {/* 제목 부분 */}
             <View style={styles.header}>
-                <Title width={'20%'}/>
                 <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
             </View>
 
-            {/* 버튼 부분 */}
             <View style={styles.body}>
-                <TouchableOpacity style={styles.buttonSide} onPress={() => { /* myPage로 이동 */ }}>
+                <TouchableOpacity
+                    style={styles.buttonSide}
+                    onPress={() => navigation.navigate(MyPage)}
+                >
                     <Text style={styles.buttonText}>My-page</Text>
                 </TouchableOpacity>
                 <View>
-                    <TouchableOpacity style={styles.button} onPress={() => { /* DrawingCanvas로 이동 */ }}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.navigate(DrawingCanvas)}
+                    >
                         <Text style={styles.buttonText}>그림배우기</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={styles.button} onPress={() => { /* TextInput으로 이동 */ }}>
+                    <TouchableOpacity
+                        style={styles.button}
+                        onPress={() => navigation.navigate(TextInput)}
+                    >
                         <Text style={styles.buttonText}>글자학습 및 교정</Text>
                     </TouchableOpacity>
                 </View>
             </View>
-
-            {/* 이미지 부분 */}
-            <View style={styles.footer}>
-                <Text style={styles.footerText}>Footer Image or Illustration Here</Text>
-            </View>
         </View>
+    );
+};
+
+const Main = () => {
+    return (
+        <NavigationContainer>
+            <Stack.Navigator initialRouteName="Main">
+                <Stack.Screen name="Main" component={MainPage} />
+                <Stack.Screen name="MyPage" component={MyPage} />
+                <Stack.Screen name="DrawingCanvas" component={DrawingCanvas} />
+                <Stack.Screen name="TextInput" component={TextInput} />
+            </Stack.Navigator>
+        </NavigationContainer>
     );
 };
 
