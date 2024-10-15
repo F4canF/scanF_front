@@ -4,7 +4,7 @@ import { View, Text } from 'react-native';
 const TextInput = () => {
     return (
         <View>
-            <Text>My Page</Text>
+            <Text>글자 학습 임</Text>
         </View>
     );
 };
