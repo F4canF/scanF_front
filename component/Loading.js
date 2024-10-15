@@ -1,107 +1,40 @@
+// Loading.js
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
-import { createStackNavigator } from '@react-navigation/stack';
-import { NavigationContainer } from '@react-navigation/native';
-import MyPage from '../component/screens/MyPage'; // 새로운 페이지 임포트
-import DrawingCanvas from '../component/screens/DrawingCanvas'; // 새로운 페이지 임포트
-import TextInput from '../component/screens/TextInput'; // 새로운 페이지 임포트
+import { View, Text, ActivityIndicator, StyleSheet } from 'react-native';
 
-const Stack = createStackNavigator();
-
-const MainPage = ({ navigation }) => {
+const Loading = () => {
     return (
         <View style={styles.container}>
-            <View style={styles.header}>
-                <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
-            </View>
-
-            <View style={styles.body}>
-                <TouchableOpacity
-                    style={styles.buttonSide}
-                    onPress={() => navigation.navigate('MyPage')}  // 페이지 이름으로 수정
-                >
-                    <Text style={styles.buttonText}>My-page</Text>
-                </TouchableOpacity>
-                <View>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => navigation.navigate('DrawingCanvas')}  // 페이지 이름으로 수정
-                    >
-                        <Text style={styles.buttonText}>그림배우기</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity
-                        style={styles.button}
-                        onPress={() => navigation.navigate('TextInputPage')}  // 페이지 이름으로 수정
-                    >
-                        <Text style={styles.buttonText}>글자학습 및 교정</Text>
-                    </TouchableOpacity>
-                </View>
-            </View>
+            <Text style={styles.titleText}>scanF</Text>
+            <Text style={styles.text}>더 즐겁게, 더 재밌게</Text>
         </View>
-    );
-};
-
-const Main = () => {
-    return (
-        <NavigationContainer>
-            <Stack.Navigator initialRouteName="Main">
-                <Stack.Screen name="Main" component={MainPage} />
-                <Stack.Screen name="MyPage" component={MyPage} />
-                <Stack.Screen name="DrawingCanvas" component={DrawingCanvas} />
-                <Stack.Screen name="TextInputPage" component={TextInput} />
-            </Stack.Navigator>
-        </NavigationContainer>
     );
 };
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
-    },
-    header: {
-        flex: 1,
-        alignItems: 'center',
+        width : '100vw' ,
+        height : '100vh',
         justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#fff', 
     },
-    subtitle: {
+    titleText: {
+        color: '#F8F152', 
+        WebkitTextStrokeWidth: '2px', // 사용하려면 Webkit 접두사를 추가
+        WebkitTextStrokeColor: '#000000',
+        fontFamily: 'Agbalumo', 
+        fontSize: '7rem', 
+        fontWeight: '400', 
+        lineHeight: 'normal', 
+    },
+    text: {
         color: 'rgba(85, 85, 85, 0.87)', 
         fontFamily: 'Jua', 
-        fontSize: 24,  // 픽셀 단위로 변경
+        fontSize: 64, 
         fontStyle: 'normal', 
         fontWeight: '200', 
     },
-    body: {
-        flex: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-    },
-    button: {
-        backgroundColor: '#D3D3D3',
-        width: 100,
-        height: 100,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonSide: {
-        backgroundColor: '#D3D3D3',
-        width: '25%',
-        height: '63%',
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    buttonText: {
-        fontSize: 14,
-        fontWeight: 'bold',
-    },
-    footer: {
-        flex: 2,
-        justifyContent: 'center',
-        alignItems: 'center',
-    },
-    footerText: {
-        color: '#6A6A39',
-    },
 });
 
-export default Main;
+export default Loading;
