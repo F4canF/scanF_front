@@ -4,9 +4,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyPage from '../component/screens/MyPage'; // 새로운 페이지 임포트
 import DrawingCanvas from '../component/screens/DrawingCanvas'; // 새로운 페이지 임포트
-import TextInput from '../component/screens/TextInput'; // 새로운 페이지 임포트
+import TextInputScreen from '../component/screens/TextInput'; // 이름 변경
 import Title from '../assets/title.svg';
-
 
 const Stack = createStackNavigator();
 
@@ -14,28 +13,27 @@ const MainPage = ({ navigation }) => {
     return (
         <View style={styles.container}>
             <View style={styles.header}>
-                <Title/>
+                <Title />
                 <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
             </View>
 
             <View style={styles.body}>
                 <TouchableOpacity
                     style={styles.buttonSide}
-                    onPress={() => navigation.navigate(MyPage)}
+                    onPress={() => navigation.navigate('MyPage')} // 문자열로 변경
                 >
                     <Text style={styles.buttonText}>My-page</Text>
                 </TouchableOpacity>
                 <View>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => navigation.navigate(DrawingCanvas)}
+                        onPress={() => navigation.navigate('DrawingCanvas')} // 문자열로 변경
                     >
                         <Text style={styles.buttonText}>그림배우기</Text>
                     </TouchableOpacity>
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => navigation.navigate(TextInput)}
-                    >
+                        onPress={() => navigation.navigate('TextInputScreen')}> {/* 이름 변경 */}
                         <Text style={styles.buttonText}>글자학습 및 교정</Text>
                     </TouchableOpacity>
                 </View>
@@ -51,7 +49,7 @@ const Main = () => {
                 <Stack.Screen name="Main" component={MainPage} />
                 <Stack.Screen name="MyPage" component={MyPage} />
                 <Stack.Screen name="DrawingCanvas" component={DrawingCanvas} />
-                <Stack.Screen name="TextInput" component={TextInput} />
+                <Stack.Screen name="TextInput" component={TextInputScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
@@ -69,7 +67,7 @@ const styles = StyleSheet.create({
     subtitle: {
         color: 'rgba(85, 85, 85, 0.87)', 
         fontFamily: 'Jua', 
-        fontSize: 24,  // 픽셀 단위로 변경
+        fontSize: 24,
         fontStyle: 'normal', 
         fontWeight: '200', 
     },
