@@ -1,15 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
+import Title from '../assets/title.svg';
 
 const Main = () => {
     return (
         <View style={styles.container}>
             {/* 제목 부분 */}
             <View style={styles.header}>
-                <Image
-                    source={require('../assets/Title.png')} // 프로젝트 경로에 있는 이미지
-                    style={{ width: 200, height: 200 }}
-                />
+                <Title width={'20%'}/>
                 <Text style={styles.subtitle}>더 즐겁게, 더 재밌게</Text>
             </View>
 
