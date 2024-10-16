@@ -4,7 +4,7 @@ import { createStackNavigator } from '@react-navigation/stack';
 import { NavigationContainer } from '@react-navigation/native';
 import MyPage from '../component/screens/MyPage'; // 새로운 페이지 임포트
 import DrawingCanvas from '../component/screens/DrawingCanvas'; // 새로운 페이지 임포트
-import TextInputScreen from '../component/screens/TextInput'; // 이름 변경
+import TextInputScreen from '../component/screens/TextInputScreen'; // 이름 변경
 import Title from '../assets/title.svg';
 
 const Stack = createStackNavigator();
@@ -49,7 +49,7 @@ const Main = () => {
                 <Stack.Screen name="Main" component={MainPage} />
                 <Stack.Screen name="MyPage" component={MyPage} />
                 <Stack.Screen name="DrawingCanvas" component={DrawingCanvas} />
-                <Stack.Screen name="TextInput" component={TextInputScreen} />
+                <Stack.Screen name="TextInputScreen" component={TextInputScreen} />
             </Stack.Navigator>
         </NavigationContainer>
     );
