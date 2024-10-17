@@ -7,7 +7,6 @@ const App = () => {
   const [loading, setLoading] = useState(true);  // 로딩 상태 관리
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
 
-  // 3초 동안 로딩 화면을 표시한 후 로딩 종료
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 3000); // 3초 후 로딩 상태 해제
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
