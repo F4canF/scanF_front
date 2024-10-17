@@ -41,9 +41,9 @@ const HomeScreen = ({ navigation }) => {
             </View>
 
             {/* 하단의 사람 이미지 */}
-            {/* <View style={styles.footer}>
-                <Image source={require('../assets/readingPerson.png')} style={styles.personImage} />
-            </View> */}
+            <View style={styles.footer}>
+                <Image source={require('../assets/person.png')} style={styles.personImage} />
+            </View>
         </View>
     );
 };
