@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
 
-const LoginForm = () => {
+const LoginForm = ({ onLoginComplete }) => {
     const [page, setPage] = useState(1); // 현재 페이지 번호
     const [name, setName] = useState('');
     const [birthDate, setBirthDate] = useState('');
@@ -48,20 +48,26 @@ const LoginForm = () => {
                 <Text style={styles.label}>입력정보를 확인해주세요</Text>
                 <Text style={styles.input}>{name}</Text>
                 <Text style={styles.input}>{birthDate}</Text>
-                <TouchableOpacity style={styles.button} onPress={() => setPage(1)}>
-                <Text style={styles.buttonText}>다음</Text>
+                <TouchableOpacity
+                style={styles.button}
+                onPress={() => {
+                    // 로그인 완료 시 콜백 호출
+                    onLoginComplete(); // 로그인 완료 처리
+                }}
+                >
+                <Text style={styles.buttonText}>완료</Text>
                 </TouchableOpacity>
             </View>
             );
         default:
             return null;
         }
-    };
-
-    return <View style={styles.container}>{renderPage()}</View>;
 };
 
-const styles = StyleSheet.create({
+    return <View style={styles.container}>{renderPage()}</View>;
+    };
+
+    const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#3d3d3d',
@@ -101,4 +107,4 @@ const styles = StyleSheet.create({
     },
     });
 
-export default LoginForm;
+    export default LoginForm;

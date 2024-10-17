@@ -14,7 +14,7 @@ const App = () => {
   }, []);
 
   // 로그인 완료 시 호출될 함수
-  const handleLogin = () => {
+  const handleLoginComplete = () => {
     setIsLoggedIn(true); // 로그인 상태를 true로 변경
   };
 
@@ -23,13 +23,11 @@ const App = () => {
     return <Loading />;
   }
 
-  // 로딩이 끝나고 로그인되지 않은 경우 LoginForm을 보여줌
-  if (!isLoggedIn) {
-    return <LoginForm onLogin={handleLogin} />;
+  if (isLoggedIn) {
+    return <Main />; // 로그인 완료 시 메인 페이지로 이동
   }
 
-  // 로그인 후 메인 페이지로 이동
-  return <Main />;
+  return <LoginForm onLoginComplete={handleLoginComplete} />;
 };
 
 export default App;
