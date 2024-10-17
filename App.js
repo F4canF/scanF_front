@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Loading from './component/Loading';
-import Main from './component/Main';
+import Loading from './component/Loading'; // 로딩 컴포넌트
+import LoginForm from './component/LoginForm'; // 로그인 컴포넌트
+import Main from './component/Main'; // 메인 페이지 컴포넌트
 
 const App = () => {
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);  // 로딩 상태 관리
+  const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태 관리
 
   // 3초 동안 로딩 화면을 표시한 후 로딩 종료
   useEffect(() => {
@@ -11,14 +13,23 @@ const App = () => {
     return () => clearTimeout(timer); // 컴포넌트 언마운트 시 타이머 정리
   }, []);
 
-  // 로딩 중일 때는 LoadingScreen을 보여줌
+  // 로그인 완료 시 호출될 함수
+  const handleLogin = () => {
+    setIsLoggedIn(true); // 로그인 상태를 true로 변경
+  };
+
+  // 로딩 중일 때는 Loading 컴포넌트를 보여줌
   if (loading) {
     return <Loading />;
   }
 
-  return (
-    <Main/>
-  );
+  // 로딩이 끝나고 로그인되지 않은 경우 LoginForm을 보여줌
+  if (!isLoggedIn) {
+    return <LoginForm onLogin={handleLogin} />;
+  }
+
+  // 로그인 후 메인 페이지로 이동
+  return <Main />;
 };
 
 export default App;
