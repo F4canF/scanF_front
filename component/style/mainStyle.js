@@ -3,50 +3,56 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
+        backgroundColor: '#f5f5dc',  // 연한 노란색 배경
+        justifyContent: 'space-between',
     },
     header: {
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 20,
+    },
+    title: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        color: '#ffdd57', // 노란색 글자
     },
     subtitle: {
-        color: 'rgba(85, 85, 85, 0.87)', 
-        fontFamily: 'Jua', 
-        fontSize: 24,
-        fontStyle: 'normal', 
-        fontWeight: '200', 
+        fontSize: 16,
+        color: '#808080', // 회색 글자
     },
     body: {
         flex: 2,
-        flexDirection: 'row',
-        justifyContent: 'space-evenly',
-        alignItems: 'center',
-    },
-    button: {
-        backgroundColor: '#D3D3D3',
-        width: 100,
-        height: 100,
         justifyContent: 'center',
         alignItems: 'center',
     },
-    buttonSide: {
-        backgroundColor: '#D3D3D3',
-        width: '25%',
-        height: '63%',
-        justifyContent: 'center',
+    cloudButton: {
+        backgroundColor: '#ffffff',  // 구름처럼 흰색 배경
+        paddingVertical: 10,
+        paddingHorizontal: 20,
+        marginBottom: 15,
+        borderRadius: 50,
+        shadowColor: '#000', // 구름의 그림자
+        shadowOffset: { width: 0, height: 5 },
+        shadowOpacity: 0.2,
+        shadowRadius: 10,
+        width: 250,
         alignItems: 'center',
     },
     buttonText: {
-        fontSize: 14,
-        fontWeight: 'bold',
+        fontSize: 16,
+        color: '#000000', // 검은색 글자
     },
     footer: {
-        flex: 2,
-        justifyContent: 'center',
+        flex: 1,
+        justifyContent: 'flex-end',
         alignItems: 'center',
+        paddingBottom: 30,
     },
-    footerText: {
-        color: '#6A6A39',
+    personImage: {
+        width: 150,
+        height: 150,
+        resizeMode: 'contain',
     },
 });
 
