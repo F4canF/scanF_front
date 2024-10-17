@@ -3,40 +3,59 @@ import { StyleSheet } from 'react-native';
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: '#3d3d3d',
-        padding: 20,
+        justifyContent: 'center',
+        alignItems: 'center',
+        backgroundColor: '#FFFFFF',
     },
-    card: {
-        backgroundColor: '#fff',
-        padding: 20,
-        borderRadius: 8,
-        marginBottom: 20,
+    title: {
+        fontSize: 36,
+        fontWeight: 'bold',
+        color: '#FDD835',
+        marginBottom: 40,
+        fontFamily: 'Cursive', // 적절한 폰트로 대체 필요
     },
-    label: {
-        fontSize: 18,
-        marginBottom: 10,
-        color: '#333',
-    },
-    highlight: {
-        color: '#FFD700',
+    inputContainer: {
+        width: '80%',
     },
     input: {
-        height: 40,
-        borderColor: '#ccc',
-        borderWidth: 1,
-        borderRadius: 5,
-        paddingHorizontal: 10,
+        backgroundColor: '#FFF9C4',
+        borderRadius: 20,
+        padding: 15,
+        marginBottom: 20,
+        fontSize: 16,
+        color: '#333333',
+    },
+    linkContainer: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        width: '80%',
         marginBottom: 20,
     },
-    button: {
-        backgroundColor: '#FFD700',
-        paddingVertical: 10,
-        borderRadius: 5,
+    link: {
+        color: '#999999',
+        textDecorationLine: 'underline',
+        fontSize: 14,
     },
-    buttonText: {
-        textAlign: 'center',
+    loginButton: {
+        backgroundColor: '#FBC02D',
+        padding: 15,
+        borderRadius: 25,
+        width: '80%',
+        alignItems: 'center',
+        marginBottom: 20,
+    },
+    loginText: {
+        color: '#FFFFFF',
+        fontSize: 16,
         fontWeight: 'bold',
-        color: '#333',
+    },
+    bottomText: {
+        color: '#999999',
+        fontSize: 14,
+    },
+    registerLink: {
+        color: '#333333',
+        textDecorationLine: 'underline',
     },
 });
 

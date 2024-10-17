@@ -1,71 +1,75 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
-import styles from '../component/style/loginStyle';
 
 const LoginForm = ({ onLoginComplete }) => {
-    const [page, setPage] = useState(1); // 현재 페이지 번호
-    const [name, setName] = useState('');
-    const [birthDate, setBirthDate] = useState('');
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
 
-    const renderPage = () => {
-        switch (page) {
-        case 1:
-            return (
-            <View style={styles.card}>
-                <Text style={styles.label}>
-                <Text style={styles.highlight}>이름</Text>을 입력해주세요
-                </Text>
-                <TextInput
-                style={styles.input}
-                placeholder="이름"
-                value={name}
-                onChangeText={setName}
-                />
-                <TouchableOpacity style={styles.button} onPress={() => setPage(2)}>
-                <Text style={styles.buttonText}>다음</Text>
-                </TouchableOpacity>
-            </View>
-            );
-        case 2:
-            return (
-            <View style={styles.card}>
-                <Text style={styles.label}>
-                사용할 <Text style={styles.highlight}>생일</Text>을 입력해주세요
-                </Text>
-                <TextInput
-                style={styles.input}
-                placeholder="생일"
-                value={birthDate}
-                onChangeText={setBirthDate}
-                />
-                <TouchableOpacity style={styles.button} onPress={() => setPage(3)}>
-                <Text style={styles.buttonText}>확인</Text>
-                </TouchableOpacity>
-            </View>
-            );
-        case 3:
-            return (
-            <View style={styles.card}>
-                <Text style={styles.label}>입력정보를 확인해주세요</Text>
-                <Text style={styles.input}>{name}</Text>
-                <Text style={styles.input}>{birthDate}</Text>
-                <TouchableOpacity
-                style={styles.button}
-                onPress={() => {
-                    // 로그인 완료 시 콜백 호출
-                    onLoginComplete(); // 로그인 완료 처리
-                }}
-                >
-                <Text style={styles.buttonText}>완료</Text>
-                </TouchableOpacity>
-            </View>
-            );
-        default:
-            return null;
-        }
-    };
+  const handleLogin = () => {
+    // 로그인 로직 처리 (예: 서버 요청 등)
+    if (username === 'user' && password === 'password') {
+      onLoginComplete(); // 로그인 성공 시 메인 페이지로 이동
+    } else {
+      alert('아이디 또는 비밀번호가 올바르지 않습니다.');
+    }
+  };
 
-    return <View style={styles.container}>{renderPage()}</View>;
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>로그인</Text>
+
+      <TextInput
+        style={styles.input}
+        placeholder="아이디를 입력해주세요"
+        value={username}
+        onChangeText={setUsername}
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="비밀번호를 입력해주세요"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry={true}
+      />
+
+      <TouchableOpacity style={styles.loginButton} onPress={handleLogin}>
+        <Text style={styles.loginText}>로그인</Text>
+      </TouchableOpacity>
+    </View>
+  );
 };
 
-    export default LoginForm;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#FFFFFF',
+  },
+  title: {
+    fontSize: 24,
+    marginBottom: 20,
+  },
+  input: {
+    width: '80%',
+    padding: 15,
+    borderColor: '#DDD',
+    borderWidth: 1,
+    marginBottom: 20,
+    borderRadius: 10,
+  },
+  loginButton: {
+    backgroundColor: '#FBC02D',
+    padding: 15,
+    borderRadius: 10,
+    width: '80%',
+    alignItems: 'center',
+  },
+  loginText: {
+    color: '#FFFFFF',
+    fontSize: 16,
+    fontWeight: 'bold',
+  },
+});
+
+export default LoginForm;
